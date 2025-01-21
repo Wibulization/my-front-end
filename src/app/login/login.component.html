@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div class="card" style="max-width: 400px; margin: auto;">
+        <div class="card-header text-center">
+            <h4>Đăng Nhập</h4>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="onLogin()" [formGroup]="loginForm" method="post">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control" id="email" name="email" formControlName ="email">
+                </div><div *ngIf="loginForm.get('email')?.invalid && submitted" class="text-danger">
+                    Email không hợp lệ.
+                  </div>
+                
+                <div class="form-group mb-3">
+                    <label for="password">Mật khẩu:</label>
+                    <div class="input-group">
+                        <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="password" name="password" formControlName = "password" >
+                        <div class="input-group-append">
+                            <span class="input-group-text" (click)="togglePassword()">
+                                <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+                            </span>
+                        </div>
+                    </div>     
+                </div>
+                <div *ngIf="loginForm.get('password')?.invalid && submitted" class="text-danger">
+                    Mật khẩu không hợp lệ
+                </div>
+                <div *ngIf="wrongLogin" class="text-danger">
+                    {{ wrongLogin }}
+                  </div>
+                <button type="submit" class="btn btn-primary w-100">Đăng Nhập</button>
+            </form>
+        </div>
+        <div class="card-footer text-center">
+            <p>
+                <a routerLink="/register" class="btn btn-link">Chưa có tài khoản? Đăng ký ngay!</a>
+            </p>
+        </div>
+    </div>
+</div>
