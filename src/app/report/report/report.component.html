@@ -1,0 +1,21 @@
+<div class="container mt-4">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-center mb-4">Xuất Báo Cáo JasperReports</h2>
+
+        <!-- Form nhập từ khóa -->
+        <div class="mb-3">
+            <label for="filter" class="form-label fw-bold">Nhập từ khóa lọc:</label>
+            <input type="text" [(ngModel)]="filter" class="form-control" placeholder="Nhập tên cần tìm...">
+        </div>
+
+        <!-- Nút xuất báo cáo -->
+        <div class="d-flex justify-content-center gap-3">
+            <button (click)="downloadPdf()" class="btn btn-danger">
+                <i class="fa fa-file-pdf"></i> Xuất PDF
+            </button>
+            <button (click)="downloadXlsx()" class="btn btn-success">
+                <i class="fa fa-file-excel"></i> Xuất Excel
+            </button>
+        </div>
+    </div>
+</div>
